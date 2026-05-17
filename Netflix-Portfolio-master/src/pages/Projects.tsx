@@ -32,12 +32,6 @@ const Projects: React.FC = () => {
   };
 
   // Helper to dynamically inject your view titles based on what project is active
-  const getViewDescriptionBySlug = (slug: string) => {
-    if (slug === 'instagram-management') return "Instagram Strategy — Live Grid View Mockup";
-    if (slug === 'linkedin-management') return "LinkedIn Branding — Executive Profile & Narrative View";
-    if (slug === 'menu-design') return "Hospitality Visuals — High-Aesthetic Menu Creatives Showcase";
-    return "Project Media Asset Showcase";
-  };
 
   const openProjectModal = (project: any) => {
     setActiveModalProject(project);
