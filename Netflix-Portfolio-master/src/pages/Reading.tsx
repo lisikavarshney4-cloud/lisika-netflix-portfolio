@@ -5,9 +5,6 @@ import './Reading.css';
 import atomicHabits from '../images/atomic_habits.jpg';
 import richDadPoorDad from '../images/rich_dad_poor_dad.jpg';
 import alchemist from '../images/alchemist.jpg';
-import eatThatFrog from '../images/eat_that_frog.jpg';
-import vijayanikiAidhuMetlu from '../images/vijayaniki_aidu_metlu.jpg';
-import venneloAdapilla from '../images/vennelo_adapilla.jpeg';
 import crack from '../images/crack.jpg';
 import clean from '../images/clean.jpg';
 

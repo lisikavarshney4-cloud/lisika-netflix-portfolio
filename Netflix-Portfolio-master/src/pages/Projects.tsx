@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { projectsData } from '../data/constants';
-import { FaPlay, FaPlus, FaCheck, FaTimes, FaChartLine, FaRegFileAlt, FaExternalLinkAlt } from 'react-icons/fa';
+import { FaPlay, FaPlus, FaCheck, FaTimes, FaChartLine, FaRegFileAlt } from 'react-icons/fa';
 
 // Direct modular imports for your clean image assets
 import instagramImg from '../images/instagram.png';
