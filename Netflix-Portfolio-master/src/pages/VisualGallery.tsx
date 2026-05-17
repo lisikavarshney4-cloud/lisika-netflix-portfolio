@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react'; // 🚀 Added useState for modal control
 
 interface StrategicAsset {
   id: number;
@@ -7,6 +7,9 @@ interface StrategicAsset {
 }
 
 const VisualGallery: React.FC = () => {
+  // 🍿 Active asset state for lightbox
+  const [selectedAsset, setSelectedAsset] = useState<StrategicAsset | null>(null);
+
   const strategicAssets: StrategicAsset[] = [
     { id: 1, type: "Image", src: "/visual-gallery/monument.png" },
     { id: 2, type: "Video", src: "/visual-gallery/cafe-1.mp4" },
@@ -20,8 +23,32 @@ const VisualGallery: React.FC = () => {
   ];
 
   return (
-    <div style={{ padding: '80px 0', backgroundColor: 'transparent', width: '100%', position: 'relative', zIndex: 10 }}>
+    <div style={{ padding: '60px 0 80px 0', backgroundColor: 'transparent', width: '100%', position: 'relative', zIndex: 10 }}>
       <div style={{ maxWidth: '1400px', width: '92%', margin: '0 auto' }}>
+        
+        {/* 🎬 CINEMATIC HEADING SECTION */}
+        <div style={{ marginBottom: '45px', textAlign: 'left' }}>
+          <h1 style={{ 
+            color: '#fff', 
+            fontSize: '2.4rem', 
+            fontWeight: '800', 
+            letterSpacing: '1.5px',
+            margin: '0 0 10px 0',
+            textTransform: 'uppercase',
+            fontFamily: '"Helvetica Neue", Helvetica, Arial, sans-serif'
+          }}>
+            NOW STREAMING
+          </h1>
+          <p style={{ 
+            color: '#aaa', 
+            fontSize: '1.1rem', 
+            margin: '0',
+            fontWeight: '400',
+            letterSpacing: '0.5px'
+          }}>
+            Raw clips, quiet moments, and the world through my camera.
+          </p>
+        </div>
         
         {/* --- GRID --- */}
         <div style={{ 
@@ -32,6 +59,7 @@ const VisualGallery: React.FC = () => {
           {strategicAssets.map((asset) => (
             <div 
               key={asset.id}
+              onClick={() => setSelectedAsset(asset)} // 👈 Clicking opens full-screen mode
               style={{
                 position: 'relative',
                 borderRadius: '8px',
@@ -78,6 +106,87 @@ const VisualGallery: React.FC = () => {
           ))}
         </div>
       </div>
+
+      {/* 🖥️ FULL SCREEN CINEMA LIGHTBOX MODAL */}
+      {selectedAsset && (
+        <div 
+          onClick={() => setSelectedAsset(null)} // Clicking background overlay closes it
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100vw',
+            height: '100vh',
+            backgroundColor: 'rgba(0, 0, 0, 0.92)',
+            backdropFilter: 'blur(12px)', // Blurs the home layout behind the asset
+            zIndex: 9999, // Floating safely above headers/navigation
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            cursor: 'zoom-out'
+          }}
+        >
+          {/* Close Target Button (&times; creates an elegant X graphic) */}
+          <button 
+            onClick={(e) => {
+              e.stopPropagation();
+              setSelectedAsset(null);
+            }}
+            style={{
+              position: 'absolute',
+              top: '25px',
+              right: '35px',
+              background: 'none',
+              border: 'none',
+              color: 'rgba(255, 255, 255, 0.6)',
+              fontSize: '2.8rem',
+              cursor: 'pointer',
+              transition: 'color 0.2s ease, transform 0.2s'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.color = '#e50914'; // Netflix Red glow on hover
+              e.currentTarget.style.transform = 'scale(1.1)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.color = 'rgba(255, 255, 255, 0.6)';
+              e.currentTarget.style.transform = 'scale(1)';
+            }}
+          >
+            &times;
+          </button>
+
+          {/* Asset Container */}
+          <div 
+            onClick={(e) => e.stopPropagation()} // Prevents closing layout when clicking directly on image/video
+            style={{
+              maxWidth: '85%',
+              maxHeight: '85vh',
+              boxShadow: '0 30px 60px rgba(0, 0, 0, 0.8)',
+              borderRadius: '6px',
+              overflow: 'hidden',
+              backgroundColor: '#000',
+              border: '1px solid rgba(255, 255, 255, 0.15)'
+            }}
+          >
+            {selectedAsset.type === 'Video' ? (
+              <video 
+                src={selectedAsset.src} 
+                controls // Adds manual volume, timeline scrubbing, and pause controls!
+                autoPlay 
+                loop 
+                playsInline
+                style={{ maxWidth: '100%', maxHeight: '85vh', display: 'block' }} 
+              />
+            ) : (
+              <img 
+                src={selectedAsset.src} 
+                alt="Enlarged media view" 
+                style={{ maxWidth: '100%', maxHeight: '85vh', objectFit: 'contain', display: 'block' }} 
+              />
+            )}
+          </div>
+        </div>
+      )}
     </div>
   );
 };
