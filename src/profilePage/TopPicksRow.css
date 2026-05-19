@@ -1,10 +1,13 @@
 .top-picks-row {
   margin: 25px 0;
   padding: 10px 4%;
+  overflow: hidden;
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .row-title {
-  font-size: 1.6rem;
+  font-size: clamp(1.25rem, 3vw, 1.6rem);
   font-weight: 700;
   color: #fff;
   margin-bottom: 18px;
@@ -14,10 +17,15 @@
 
 .card-row {
   display: flex;
-  gap: 15px;
+  gap: clamp(10px, 2vw, 15px);
   overflow-x: auto;
+  overscroll-behavior-inline: contain;
   padding-bottom: 20px;
+  padding-right: 4%;
+  scroll-snap-type: x proximity;
   scrollbar-width: none; /* Hide scrollbar Firefox */
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .card-row::-webkit-scrollbar {
@@ -27,15 +35,17 @@
 /* THE EXTRACT RECTANGLE shape from your photo */
 .pick-card {
   position: relative;
-  width: 255px;
-  height: 145px; /* Perfect cinematic 16:9 box aspect */
+  width: clamp(210px, 30vw, 255px);
+  aspect-ratio: 16 / 9;
   border-radius: 6px;
   overflow: hidden;
   cursor: pointer;
   flex-shrink: 0;
+  height: auto;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease;
   animation: slideIn 0.5s ease forwards;
+  scroll-snap-align: start;
 }
 
 .pick-card:hover {
@@ -75,12 +85,41 @@
 
 .pick-label {
   color: #fff;
-  font-size: 1.15rem;
+  font-size: clamp(0.96rem, 2vw, 1.15rem);
   font-weight: 700;
   letter-spacing: 0.5px;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.8);
   text-align: center;
   padding: 0 15px;
+}
+
+@media (min-width: 1100px) {
+  .card-row {
+    overflow-x: visible;
+  }
+}
+
+@media (max-width: 640px) {
+  .top-picks-row {
+    margin: 18px 0;
+    padding: 8px 5%;
+  }
+
+  .card-row {
+    gap: 10px;
+    margin-left: -5%;
+    padding-left: 5%;
+    padding-right: 5%;
+    width: calc(100% + 10%);
+  }
+
+  .pick-card {
+    width: min(78vw, 260px);
+  }
+
+  .pick-card:hover {
+    transform: none;
+  }
 }
 
 /* Keyframe Core Animations */
