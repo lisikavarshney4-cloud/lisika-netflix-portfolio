@@ -1,0 +1,101 @@
+.banner-content {
+  position: relative;
+  z-index: 2; /* Sits above your video background */
+  width: 100%;
+  max-width: 800px;
+  padding-left: 4%;
+  padding-top: 15vh; /* Pushes it down below the navbar */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.banner-tags {
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+  color: #fff;
+}
+
+.separator {
+  color: #e50914; /* Red pipeline separator */
+  margin: 0 8px;
+}
+
+.banner-title {
+  font-size: 4.5rem;
+  font-weight: 800;
+  margin: 0 0 10px 0;
+  letter-spacing: -1px;
+  line-height: 1.1;
+}
+
+.banner-meta {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #ccc;
+  margin-bottom: 20px;
+}
+
+.meta-divider {
+  color: #666;
+}
+
+.banner-description {
+  width: 100%;
+  max-width: 600px;
+  line-height: 1.5;
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-bottom: 30px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+/* The Buttons */
+.banner-buttons {
+  display: flex;
+  gap: 15px;
+}
+
+.banner-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 24px;
+  border: none;
+  border-radius: 4px;
+  font-size: 1.1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.play-button {
+  background-color: white;
+  color: black;
+  text-shadow: none;
+}
+
+.play-button:hover {
+  background-color: rgba(255, 255, 255, 0.75);
+}
+
+.info-button {
+  background-color: rgba(109, 109, 110, 0.7);
+  color: white;
+}
+
+.info-button:hover {
+  background-color: rgba(109, 109, 110, 0.4);
+}
+
+.button-icon {
+  font-size: 1.2rem;
+}
