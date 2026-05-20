@@ -4,11 +4,12 @@ import './TopPicksRow.css'; // Reuses your updated landscape card CSS!
 import { FaBookOpen, FaImages, FaWrench, FaEnvelope, FaUsers, FaLaptopCode, FaPenNib } from 'react-icons/fa';
 import { ProfileType } from '../types';
 
-import caseStudyImg from '../images/case-study.png';
-import visualGalleryImg from '../images/visual-gallery.png';
-import skillsImg from '../images/skills.png';
-import contactMeImg from '../images/contact-me.png';
-import linkedlnWriteupsImg from '../images/linkedln-writeups.png'; 
+// 🚀 FIXED: Double dots climb out of the profilePage folder correctly
+import caseStudyImg from '../../images/case-study.png';
+import visualGalleryImg from '../../images/visual-gallery.png';
+import skillsImg from '../../images/skills.png';
+import contactMeImg from '../../images/contact-me.png';
+import thoughtLeadershipImg from '../../images/thought-leadership.png';
 
 interface ContinueWatchingProps {
   profile: ProfileType;
@@ -25,7 +26,7 @@ const continueWatchingConfig: Record<ProfileType, { title: string; imgSrc: strin
   Recruiter: [
     { title: "Case Studies", imgSrc: caseStudyImg, route: "/projects", icon: <FaBookOpen /> },
     // 🚀 FIXED: Swapped linkedlnwriteupsImg back to thoughtLeadershipImg to match top import
-    { title: "LinkedIn Writeups", imgSrc: linkedlnWriteupsImg, route: "/linkedin-writeups", icon: <FaPenNib /> }, 
+    { title: "LinkedIn Writeups", imgSrc: thoughtLeadershipImg, route: "/linkedin-writeups", icon: <FaPenNib /> }, 
     { title: "Visual Gallery", imgSrc: visualGalleryImg, route: "/visual-gallery", icon: <FaImages /> },
     { title: "Tools I Use", imgSrc: skillsImg, route: "/skills", icon: <FaWrench /> },
     { title: "Contact Me", imgSrc: contactMeImg, route: "/contact-me", icon: <FaEnvelope /> }
@@ -33,7 +34,7 @@ const continueWatchingConfig: Record<ProfileType, { title: string; imgSrc: strin
   'Brand & Content Strategist': [
     { title: "AI Creative Systems", imgSrc: skillsImg, route: "/ai-creative-systems", icon: <FaLaptopCode /> }, 
     // 🚀 FIXED: Ensured this uses thoughtLeadershipImg too
-    { title: "LinkedIn Writeups", imgSrc: linkedlnWriteupsImg, route: "/linkedin-writeups", icon: <FaPenNib /> },
+    { title: "LinkedIn Writeups", imgSrc: thoughtLeadershipImg, route: "/linkedin-writeups", icon: <FaPenNib /> },
     { title: "Moodboard Universe", imgSrc: visualGalleryImg, route: "/moodboards", icon: <FaImages /> },
     { title: "Engagement Design", imgSrc: caseStudyImg, route: "/engagement", icon: <FaUsers /> },
     { title: "Content Ecosystems", imgSrc: contactMeImg, route: "/ecosystems", icon: <FaLaptopCode /> }
