@@ -44,19 +44,17 @@ const topPicksConfig: Record<ProfileType, { title: string; imgSrc: string; icon:
     { title: "Experience", imgSrc: experienceImg, route: "/work-experience", icon: <FaBriefcase /> },
     { title: "Certifications", imgSrc: certificatesImg, route: "/certifications", icon: <FaCertificate /> }
   ],
-  Adventurer: [
-    { title: "Music", imgSrc: visualGalleryImg, route: "/music", icon: <FaMusic /> },
-    { title: "Projects", imgSrc: projectsImg, route: "/projects", icon: <FaProjectDiagram /> },
-    { title: "Reading", imgSrc: caseStudyImg, route: "/reading", icon: <FaBook /> },
-    { title: "Contact Me", imgSrc: contactMeImg, route: "/contact-me", icon: <FaEnvelope /> },
-    { title: "Certifications", imgSrc: certificatesImg, route: "/certifications", icon: <FaCertificate /> }
-  ]
+  // 🚀 WE EMPTIED THIS OUT SO THE ROW HIDES COMPLETELY!
+  Adventurer: [] 
 };
 
 const TopPicksRow: React.FC<TopPicksRowProps> = ({ profile }) => {
   const navigate = useNavigate();
   const topPicks = topPicksConfig[profile];
   const dynamicTitle = rowTitles[profile];
+
+  // 🚀 SAFETY CHECK: If there are no picks (like Adventurer), hide the whole section!
+  if (!topPicks || topPicks.length === 0) return null;
 
   return (
     <div className="top-picks-row">

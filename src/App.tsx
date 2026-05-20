@@ -15,6 +15,12 @@ import Blogs from './pages/Blogs';
 import Game from './pages/Game';
 import Certifications from './pages/Certifications';
 
+// 🚀 ARCADE IMPORTS
+import NeonMatrix from './pages/NeonMatrix'; 
+
+// 🚀 FIXED: Absolute case-sensitive spelling for your file
+import Linkedlnwriteups from './pages/Linkedlnwriteups';
+
 // 🎬 ACTIVE EXPERT STRATEGIST WORKSPACE FILES
 import VisualGallery from './pages/VisualGallery'; 
 import ViralMechanics from './pages/ViralMechanics'; 
@@ -45,12 +51,20 @@ const App: React.FC = () => {
       <Route path="/music" element={<Layout><Music /></Layout>} />
       <Route path="/reading" element={<Layout><Reading /></Layout>} />
       <Route path="/blogs" element={<Layout><Blogs /></Layout>} />
+      
+      {/* 🚀 ARCADE ZONE */}
       <Route path="/game" element={<Game />} />
+      <Route path="/neon-matrix" element={<NeonMatrix />} />
+      
       <Route path="/certifications" element={<Layout><Certifications /></Layout>} />
       
       {/* 🟥 EXPERT WORKSPACE ROUTING CORE */}
       <Route path="/visual-gallery" element={<Layout><VisualGallery /></Layout>} />
       <Route path="/viral-mechanics" element={<Layout><ViralMechanics /></Layout>} />
+      
+      {/* 🚀 WIRED UP WITH THE CORRECT IMPORT COMPONENT */}
+      <Route path="/linkedin-writeups" element={<Layout><Linkedlnwriteups /></Layout>} />
+      
       <Route path="/audience-psychology" element={<Layout><AudiencePsychology /></Layout>} />
       <Route path="/brand-storytelling" element={<Layout><BrandStorytelling /></Layout>} />
       <Route path="/trend-forecasting" element={<Layout><TrendForecasting /></Layout>} />

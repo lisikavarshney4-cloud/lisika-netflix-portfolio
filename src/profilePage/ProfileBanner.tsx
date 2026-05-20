@@ -28,11 +28,15 @@ const ProfileBanner: React.FC<BannerProps> = ({ bannerData }) => {
         <span style={{ color: '#666' }}>|</span>
         <span>ROLE: Brand & Content Strategist</span>
         <span style={{ color: '#666' }}>|</span>
-        <span>Experience: 3+ Years</span>
+        <span>Experience: 2+ Years</span>
       </div>
+      
+      {/* 🚀 REMOVED THE EXTRA SPACE HERE */}
       <p className="banner-description">
-        {bannerData.profileSummary}
+        Building cinematic digital experiences through strategy, storytelling, and internet culture.
+        I blend branding, content systems, and AI-powered creativity to create visuals and stories people remember.
       </p>
+
       <div className="banner-buttons">
         <button
           className="banner-button play-button"
