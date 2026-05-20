@@ -6,9 +6,10 @@ import { FaPlay, FaArrowLeft, FaTimes, FaExpand, FaArrowRight } from 'react-icon
 import story1Img from '../images/story-1.png';
 import story2Img from '../images/story-2.png';
 
-const ThoughtLeadership: React.FC = () => {
+const LinkedInwriteups: React.FC = () => {
   const navigate = useNavigate();
   
+  // State handles for the crisp reading modal
   const [activeModalImg, setActiveModalImg] = useState<string | null>(null);
   const [modalTitle, setModalTitle] = useState<string>("");
 
@@ -48,6 +49,7 @@ const ThoughtLeadership: React.FC = () => {
 
   return (
     <div className="archive-hub-root">
+      {/* 📱 💻 DEVICE AGNOSTIC ENGINE STYLES */}
       <style>{`
         .archive-hub-root {
           min-height: 100vh;
@@ -55,11 +57,14 @@ const ThoughtLeadership: React.FC = () => {
           color: #fff;
           font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
           padding-bottom: 60px;
+          overflow-x: hidden;
         }
+        
+        /* HEADER BAR BRAND ENGINE */
         .hub-header {
           position: fixed;
           top: 0; left: 0; width: 100%;
-          padding: 25px 40px;
+          padding: 25px 4%;
           background: linear-gradient(to bottom, rgba(5,5,5,0.95), transparent);
           z-index: 100;
           display: flex;
@@ -83,31 +88,49 @@ const ThoughtLeadership: React.FC = () => {
         }
         .exit-btn:hover { background: #e50914; border-color: #e50914; }
 
+        /* JUMBO SCREEN TOP INTRO PANELS */
         .hub-hero {
-          padding: 150px 10% 45px;
+          padding: 140px 6% 40px;
           text-align: center;
           background: radial-gradient(circle at top, rgba(229, 9, 20, 0.08) 0%, transparent 60%);
         }
-        .hub-title { font-size: 3.8rem; font-weight: 900; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px; }
-        .hub-subtitle { font-size: 1.2rem; color: #aaa; max-width: 650px; margin: 0 auto; letter-spacing: 0.5px; line-height: 1.5; }
+        .hub-title { 
+          font-size: 3.8rem; 
+          font-weight: 900; 
+          letter-spacing: 2px; 
+          text-transform: uppercase; 
+          margin-bottom: 12px;
+          line-height: 1.1;
+        }
+        .hub-subtitle { 
+          font-size: 1.2rem; 
+          color: #aaa; 
+          max-width: 650px; 
+          margin: 0 auto; 
+          letter-spacing: 0.5px; 
+          line-height: 1.5; 
+        }
 
+        /* PREMIUM DYNAMIC TEXT SCROLLER RUNNER */
         .ticker-bar {
           background: #0a0a0a;
           border-top: 1px solid rgba(255,255,255,0.04);
           border-bottom: 1px solid rgba(255,255,255,0.04);
-          padding: 18px 0;
+          padding: 18px 4%;
           font-size: 0.85rem;
           color: #e50914;
           font-weight: 700;
           letter-spacing: 3px;
           text-transform: uppercase;
           text-align: center;
+          line-height: 1.4;
         }
 
+        /* PLATFORM GRID CONTAINER CORE */
         .catalog-container {
           max-width: 1200px;
           margin: 60px auto 0;
-          padding: 0 5%;
+          padding: 0 6%;
           display: flex;
           flex-direction: column;
           gap: 80px;
@@ -118,6 +141,7 @@ const ThoughtLeadership: React.FC = () => {
           align-items: center;
         }
         
+        /* CHROMIUM INTERACTIVE CARD GRAPHICS */
         .campaign-left {
           flex: 1.2;
           aspect-ratio: 16 / 9;
@@ -138,7 +162,6 @@ const ThoughtLeadership: React.FC = () => {
           border-color: rgba(229, 9, 20, 0.4);
         }
         .campaign-left:hover .hover-expand-overlay { opacity: 1; }
-        
         .post-screenshot {
           width: 100%;
           height: 100%;
@@ -159,6 +182,7 @@ const ThoughtLeadership: React.FC = () => {
           z-index: 5;
         }
         
+        /* DATA AND METRIC TYPOGRAPHY PANELS */
         .campaign-right {
           flex: 1;
           display: flex;
@@ -177,7 +201,7 @@ const ThoughtLeadership: React.FC = () => {
           letter-spacing: 1px;
         }
         .story-id { color: #e50914; font-size: 0.9rem; font-weight: 800; letter-spacing: 2px; margin-bottom: 4px; }
-        .story-title { font-size: 1.8rem; font-weight: 800; color: #fff; margin: 0 0 10px; letter-spacing: 0.5px; }
+        .story-title { font-size: 1.8rem; font-weight: 800; color: #fff; margin: 0 0 10px; letter-spacing: 0.5px; line-height: 1.2; }
         .story-tagline { font-size: 1.1rem; font-style: italic; color: #eee; margin-bottom: 12px; line-height: 1.4; }
         .story-desc { color: #888; font-size: 0.95rem; margin-bottom: 20px; line-height: 1.5; }
         .metric-text { font-size: 0.85rem; color: #e50914; font-weight: 600; letter-spacing: 1px; margin-bottom: 25px; text-transform: uppercase; }
@@ -198,9 +222,10 @@ const ThoughtLeadership: React.FC = () => {
         }
         .view-btn:hover { background-color: #e50914; color: #fff; transform: scale(1.02); }
 
+        /* FOOTER BRAND CONNECTIONS SYSTEM */
         .hub-footer-cta {
           text-align: center;
-          padding: 100px 20px 60px;
+          padding: 100px 6% 60px;
           background: linear-gradient(to top, rgba(229, 9, 20, 0.05), transparent);
           border-top: 1px solid rgba(255,255,255,0.03);
           margin-top: 100px;
@@ -225,6 +250,7 @@ const ThoughtLeadership: React.FC = () => {
         }
         .footer-action-btn:hover { background: #e50914; border-color: #e50914; box-shadow: 0 0 30px rgba(229,9,20,0.4); }
 
+        /* THEATER HIGH-DEFINITION MODAL OVERLAY SYSTEMS */
         .theater-overlay {
           position: fixed;
           top: 0; left: 0; width: 100vw; height: 100vh;
@@ -263,6 +289,7 @@ const ThoughtLeadership: React.FC = () => {
           text-transform: uppercase;
           border-bottom: 2px solid #e50914;
           padding-bottom: 5px;
+          text-align: center;
         }
         .theater-close-btn {
           position: fixed;
@@ -284,25 +311,53 @@ const ThoughtLeadership: React.FC = () => {
 
         @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        @media (max-width: 900px) {
-          .campaign-row { flex-direction: column; gap: 30px; }
+        /* 💻 TABLET MEDIA STYLING ENGINE */
+        @media (max-width: 1024px) {
+          .hub-title { font-size: 3.2rem; }
+          .catalog-container { gap: 60px; }
+          .campaign-row { gap: 35px; }
+          .story-title { font-size: 1.6rem; }
+        }
+
+        /* 📱 SMARTPHONE COMPILATION MEDIA QUERIES */
+        @media (max-width: 800px) {
+          .hub-header { padding: 15px 5%; }
+          .hub-hero { padding: 110px 5% 35px; }
+          .hub-title { font-size: 2.3rem; }
+          .hub-subtitle { font-size: 1rem; }
+          
+          .ticker-bar { font-size: 0.75rem; letter-spacing: 2px; padding: 14px 4%; }
+          
+          .catalog-container { margin-top: 40px; gap: 50px; padding: 0 5%; }
+          .campaign-row { flex-direction: column; gap: 20px; align-items: flex-start; }
+          
           .campaign-left { width: 100%; }
-          .hub-title { font-size: 2.5rem; }
-          .hub-header { padding: 15px 20px; }
-          .theater-close-btn { top: 15px; right: 20px; }
+          .campaign-right { width: 100%; }
+          
+          .story-title { font-size: 1.5rem; margin-bottom: 6px; }
+          .story-tagline { font-size: 1rem; margin-bottom: 8px; }
+          .story-desc { font-size: 0.9rem; margin-bottom: 15px; }
+          .metric-text { margin-bottom: 20px; }
+          
+          .footer-cta-title { font-size: 1.7rem; }
+          .footer-cta-sub { font-size: 0.95rem; }
+          .footer-action-btn { width: 100%; justify-content: center; padding: 14px 20px; }
+          
+          .theater-overlay { padding: 70px 15px 20px; }
+          .theater-close-btn { top: 15px; right: 20px; padding: 8px 12px; font-size: 1rem; }
         }
       `}</style>
 
       {/* Header Bar */}
       <div className="hub-header">
+        {/* 🚀 FIXED VALUE STRING TARGET TO MATCH BRAND REORGANIZATION */}
         <button onClick={() => navigate('/browse')} className="exit-btn">
-          <FaArrowLeft /> Exit Architecture
+          <FaArrowLeft /> Back to Universe
         </button>
       </div>
 
       {/* Hero Display */}
       <div className="hub-hero">
-        {/* 🚀 CHANGED TO LINKEDIN WRITEUPS */}
         <h1 className="hub-title">LinkedIn Writeups</h1>
         <p className="hub-subtitle">
           Stories I wrote to spark emotion, conversation, and human connection online.
@@ -339,7 +394,7 @@ const ThoughtLeadership: React.FC = () => {
         ))}
       </div>
 
-      {/* CTA Footer Section */}
+      {/* CTA Footer Section Connected Directly To Viral Mechanics */}
       <div className="hub-footer-cta">
         <h3 className="footer-cta-title">Many More Archives Coming Soon</h3>
         <p className="footer-cta-sub">
