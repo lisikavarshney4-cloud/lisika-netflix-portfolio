@@ -30,10 +30,9 @@ const NetflixTitle: React.FC = () => {
 
       loadAndPlaySound();
 
-      // Navigate after sound finishes
       const timer = setTimeout(() => {
         navigate('/browse');
-      }, 3500);
+      }, 1100);
 
       return () => clearTimeout(timer);
     }

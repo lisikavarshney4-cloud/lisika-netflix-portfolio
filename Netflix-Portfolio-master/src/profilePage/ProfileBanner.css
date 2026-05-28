@@ -1,46 +1,57 @@
 .banner-content {
   position: relative;
-  z-index: 2; /* Sits above your video background */
+  z-index: 2;
   width: 100%;
-  max-width: 800px;
-  padding-left: 4%;
-  padding-top: 15vh; /* Pushes it down below the navbar */
+  max-width: min(760px, 92vw);
+  padding: clamp(96px, 15vh, 160px) 4% 0;
   display: flex;
   flex-direction: column;
   justify-content: center;
   color: white;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+  box-sizing: border-box;
 }
 
 .banner-tags {
-  font-size: 0.9rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0 2px;
+  font-size: clamp(0.72rem, 1.8vw, 0.9rem);
   font-weight: 600;
   letter-spacing: 1px;
-  margin-bottom: 5px;
+  line-height: 1.5;
+  margin-bottom: 8px;
   color: #fff;
+  text-transform: uppercase;
 }
 
 .separator {
-  color: #e50914; /* Red pipeline separator */
+  color: #e50914;
   margin: 0 8px;
 }
 
 .banner-title {
-  font-size: 4.5rem;
+  color: #fff;
+  font-size: clamp(2.55rem, 8vw, 4.5rem);
   font-weight: 800;
   margin: 0 0 10px 0;
-  letter-spacing: -1px;
+  letter-spacing: 0;
   line-height: 1.1;
+  max-width: 11ch;
+  overflow-wrap: anywhere;
 }
 
 .banner-meta {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   gap: 10px;
-  font-size: 1rem;
+  font-size: clamp(0.78rem, 2vw, 1rem);
   font-weight: 500;
   color: #ccc;
   margin-bottom: 20px;
+  line-height: 1.45;
 }
 
 .meta-divider {
@@ -49,17 +60,19 @@
 
 .banner-description {
   width: 100%;
-  max-width: 600px;
+  max-width: min(600px, 100%);
   line-height: 1.5;
-  font-size: 1.1rem;
+  font-size: clamp(0.96rem, 2vw, 1.1rem);
   font-weight: 400;
   margin-bottom: 30px;
+  margin-top: 0;
+  color: #fff;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
-/* The Buttons */
 .banner-buttons {
   display: flex;
+  flex-wrap: wrap;
   gap: 15px;
 }
 
@@ -71,10 +84,13 @@
   padding: 10px 24px;
   border: none;
   border-radius: 4px;
-  font-size: 1.1rem;
+  font-size: clamp(0.95rem, 2vw, 1.1rem);
   font-weight: bold;
   cursor: pointer;
   transition: all 0.2s;
+  min-height: 44px;
+  min-width: 132px;
+  white-space: nowrap;
 }
 
 .play-button {
@@ -98,4 +114,46 @@
 
 .button-icon {
   font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .banner-content {
+    max-width: 100%;
+    padding: 110px 5% 44px;
+  }
+
+  .banner-title {
+    max-width: 100%;
+  }
+
+  .banner-description {
+    max-width: 95%;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner-content {
+    padding: 92px 5% 36px;
+  }
+
+  .banner-tags {
+    letter-spacing: 0.6px;
+  }
+
+  .separator {
+    margin: 0 5px;
+  }
+
+  .banner-meta {
+    gap: 7px;
+  }
+
+  .banner-buttons {
+    gap: 10px;
+  }
+
+  .banner-button {
+    flex: 1 1 142px;
+    padding: 10px 16px;
+  }
 }
