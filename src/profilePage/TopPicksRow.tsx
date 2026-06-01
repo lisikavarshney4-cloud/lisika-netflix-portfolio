@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import './TopPicksRow.css';
-import { FaCode, FaBriefcase, FaCertificate, FaProjectDiagram, FaEnvelope, FaMusic, FaBook, FaLightbulb, FaPaintBrush, FaChartLine, FaGlobe } from 'react-icons/fa';
+import { FaCode, FaBriefcase, FaCertificate, FaProjectDiagram, FaEnvelope, FaBook, FaLightbulb, FaPaintBrush, FaChartLine, FaGlobe } from 'react-icons/fa';
 import { ProfileType } from '../types';
 
 import skillsImg from '../images/skills.png';

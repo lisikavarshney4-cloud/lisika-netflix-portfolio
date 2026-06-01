@@ -194,7 +194,8 @@ const Game: React.FC = () => {
 
     loop();
 
-    return () => cancelAnimationFrame(gameRef.current.animationId);
+    const currentGame = gameRef.current;
+    return () => cancelAnimationFrame(currentGame.animationId);
   }, [gameState]);
 
   const startGame = () => {

@@ -163,7 +163,7 @@ const AiCreativeSystem: React.FC = () => {
 
           {/* Glowing Terminal Quote Overlay Frame */}
           <div style={{ borderLeft: '3px solid #ff3333', backgroundColor: '#0b0b0b', padding: '20px 24px', borderRadius: '0 8px 8px 0', maxWidth: '680px', border: '1px solid #1a1a1a', borderLeftColor: '#ff3333', boxShadow: 'inset 0 0 20px rgba(0,0,0,0.6)' }}>
-            <span style={{ color: '#ff3333', fontSize: '0.75rem', fontFamily: 'monospace', display: 'block', marginBottom: '6px', fontWeight: 'bold', letterSpacing: '1px' }}>// EXECUTIVE PERSPECTIVE REGISTRY</span>
+            <span style={{ color: '#ff3333', fontSize: '0.75rem', fontFamily: 'monospace', display: 'block', marginBottom: '6px', fontWeight: 'bold', letterSpacing: '1px' }}>{'// EXECUTIVE PERSPECTIVE REGISTRY'}</span>
             <p style={{ margin: 0, fontStyle: 'italic', fontSize: '1.05rem', color: '#ffffff', lineHeight: '1.5', fontWeight: '400' }}>
               “People don’t care about what you say. They care about what you build.” <span style={{ color: '#ff3333', fontSize: '0.85rem', fontStyle: 'normal', fontWeight: 'bold', marginLeft: '5px' }}>— Mark Zuckerberg</span>
             </p>
