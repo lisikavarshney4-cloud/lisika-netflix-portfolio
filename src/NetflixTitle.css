@@ -1,52 +1,44 @@
-/* Lock down the background */
-body, html {
-  margin: 0;
-  padding: 0;
-  background-color: #000;
-}
-
-/* 🚀 FIX: This forces absolute dead-center alignment for mobile & desktop */
+/* 🚀 FORCE FULL SCREEN & ABSOLUTE CENTERING */
 .netflix-intro-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  width: 100vw;
-  background-color: #000;
-  overflow: hidden;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 9999;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100vw !important;
+  height: 100vh !important;
+  background-color: #000 !important;
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+  z-index: 99999 !important;
+  overflow: hidden !important;
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
-/* The LV Logo styling */
+/* 🚀 FORCE LOGO STYLING */
 .netflix-logo-text {
-  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  font-size: 9rem;
-  font-weight: 900;
-  color: #e50914; /* Netflix Red */
-  margin: 0;
-  letter-spacing: -5px;
-  text-shadow: 0 0 20px rgba(229, 9, 20, 0.4);
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+  font-size: 9rem !important;
+  font-weight: 900 !important;
+  color: #e50914 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: center !important;
+  letter-spacing: -5px !important;
+  text-shadow: 0 0 20px rgba(229, 9, 20, 0.4) !important;
   transform: scale(1);
-  
-  /* Smooth transition for the zoom effect */
   transition: transform 1.5s cubic-bezier(0.5, 0, 0.1, 1), opacity 1s ease-in-out;
 }
 
-/* 🎬 The animation state triggered by React after 2 seconds */
+/* 🎬 The Animation State */
 .netflix-intro-container.animating .netflix-logo-text {
-  transform: scale(3.5); /* Massive zoom into the screen */
-  opacity: 0; /* Fade to black */
+  transform: scale(4) !important; /* Massive zoom */
+  opacity: 0 !important; /* Fade to black */
 }
 
-/* 📱 MOBILE OPTIMIZATION */
+/* 📱 STRICT MOBILE OPTIMIZATION */
 @media (max-width: 768px) {
   .netflix-logo-text {
-    font-size: 6rem; /* Keeps it perfectly proportioned on phones */
-  }
-  .netflix-intro-container.animating .netflix-logo-text {
-    transform: scale(4); /* Slightly deeper zoom for smaller screens */
+    font-size: 6rem !important; /* Scales down perfectly for phones */
   }
 }
