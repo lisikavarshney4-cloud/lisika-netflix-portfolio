@@ -8,6 +8,7 @@
   color: #fff;
   position: fixed;
   width: 100%;
+  box-sizing: border-box;
   top: 0;
   background-image: linear-gradient(180deg, rgb(0 0 1 / 90%) 10%, transparent 100%);
   padding: 20px;
@@ -70,13 +71,19 @@
 
 /* Mobile-specific styling */
 @media (max-width: 768px) {
+  .navbar {
+    padding: 14px 16px;
+  }
+
   .navbar-logo img {
     height: 20px;
     margin-right: auto;
+    margin-left: 0;
   }
   .profile-icon {
     width: 24px;
     height: 24px;
+    margin-right: 0;
   }
 
 
@@ -121,7 +128,7 @@
     top: 0;
     left: 0;
     height: 100%;
-    width: 70%;
+    width: min(82vw, 320px);
     background-color: #141414;
     color: #fff;
     display: flex;
@@ -157,7 +164,7 @@
   .sidebar ul li a {
     color: #fff;
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1rem;
     display: flex;
     align-items: center;
     gap: 8px;

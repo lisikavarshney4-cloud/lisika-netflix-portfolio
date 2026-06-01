@@ -8,9 +8,18 @@ const NetflixTitle: React.FC = () => {
   const [isClicked, setIsClicked] = useState(false);
 
   useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsClicked(true);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
+  useEffect(() => {
     if (isClicked) {
       const audioContext = new AudioContext();
-      let sourceNode: AudioBufferSourceNode;
+      let sourceNode: AudioBufferSourceNode | undefined;
+      let isMounted = true;
 
       const loadAndPlaySound = async () => {
         try {
@@ -18,6 +27,8 @@ const NetflixTitle: React.FC = () => {
           const response = await fetch(netflixSound);
           const arrayBuffer = await response.arrayBuffer();
           const audioBuffer = await audioContext.decodeAudioData(arrayBuffer);
+
+          if (!isMounted) return;
 
           sourceNode = audioContext.createBufferSource();
           sourceNode.buffer = audioBuffer;
@@ -34,29 +45,30 @@ const NetflixTitle: React.FC = () => {
         navigate('/browse');
       }, 1100);
 
-      return () => clearTimeout(timer);
+      return () => {
+        isMounted = false;
+        clearTimeout(timer);
+        try {
+          sourceNode?.stop();
+        } catch {
+          // The source may have already finished before the route unmounts.
+        }
+        audioContext.close().catch(() => undefined);
+      };
     }
   }, [isClicked, navigate]);
 
-  const handleStart = () => {
-    if (!isClicked) {
-      setIsClicked(true);
-    }
-  };
-
   return (
-    <div className="netflix-container" onClick={handleStart}>
+    <div className="netflix-container">
       {/* Replaced the image with a giant "LV" text */}
       <h1 
         className={`netflix-logo ${isClicked ? 'animate' : ''}`}
         style={{ 
-          fontSize: '25vw', 
           color: '#E50914', 
           margin: 0,
           lineHeight: 1,
           fontFamily: "'Bebas Neue', 'Arial Black', sans-serif",
-          letterSpacing: '-1vw',
-          cursor: 'pointer'
+          letterSpacing: '-1vw'
         }}
       >
         LV

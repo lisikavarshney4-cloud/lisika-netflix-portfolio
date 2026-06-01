@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './Certifications.css';
-import { FaExternalLinkAlt, FaUniversity } from 'react-icons/fa';
-import { SiGooglecloud, SiUdemy, SiCoursera, SiIeee, SiHackerrank, SiAmazon } from 'react-icons/si';
+import { FaAws, FaExternalLinkAlt, FaUniversity } from 'react-icons/fa';
+import { SiGooglecloud, SiUdemy, SiCoursera, SiIeee, SiHackerrank } from 'react-icons/si';
 import { Certification } from '../types';
 import { certificationsData } from '../data/constants';
 const iconData: { [key: string]: JSX.Element } = {
@@ -10,7 +10,7 @@ const iconData: { [key: string]: JSX.Element } = {
   'ieee': <SiIeee />,
   'university': <FaUniversity />,
   'googlecloud': <SiGooglecloud />,
-  'aws': <SiAmazon />,
+  'aws': <FaAws />,
   'hackerrank': <SiHackerrank />,
 }
 

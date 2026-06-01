@@ -77,10 +77,25 @@
 @media (max-width: 560px) {
   .profile-hero {
     align-items: flex-end;
-    min-height: 620px;
+    min-height: 560px;
   }
 
   .profile-rows {
     margin-top: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .profile-page-shell {
+    padding-bottom: 36px;
+  }
+
+  .profile-hero {
+    min-height: min(680px, 92vh);
+    min-height: min(680px, 92dvh);
+  }
+
+  .profile-hero-content {
+    max-width: 100%;
   }
 }

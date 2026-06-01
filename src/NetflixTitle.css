@@ -2,23 +2,39 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  min-height: 100vh;
+  min-height: 100dvh;
   background-color: #141414;
   overflow: hidden;
+  padding: 24px;
+  box-sizing: border-box;
 }
 
 .netflix-logo {
-  width: 500px;
-  height: auto;
+  font-size: clamp(7rem, 25vw, 22rem);
+  max-width: 100%;
   opacity: 0;
   transform: scale(0.8);
   animation: fadeIn 0.2s forwards ease-in;
+  text-align: center;
+  user-select: none;
 }
 
 @keyframes fadeIn {
   to {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .netflix-container {
+    padding: 16px;
+  }
+
+  .netflix-logo {
+    font-size: clamp(5rem, 34vw, 10rem);
+    letter-spacing: -0.08em !important;
   }
 }
 
