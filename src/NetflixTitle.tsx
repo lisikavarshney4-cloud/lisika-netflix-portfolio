@@ -1,26 +1,32 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './NetflixTitle.css';
+import netflixSound from './netflix-sound.mp3';
 
 const NetflixTitle: React.FC = () => {
   const [isAnimating, setIsAnimating] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
   const navigate = useNavigate();
 
   useEffect(() => {
-    // 1. Wait exactly 2 seconds, then trigger the zoom animation
+    const audio = new Audio(netflixSound);
+    audioRef.current = audio;
+    audio.volume = 0.5;
+    audio.play().catch(() => {});
+
     const animationTimer = setTimeout(() => {
       setIsAnimating(true);
     }, 2000);
 
-    // 2. Wait 1.5 seconds for the animation to play, then change the page
     const navigationTimer = setTimeout(() => {
       navigate('/browse');
     }, 3500);
 
-    // Cleanup timers
     return () => {
       clearTimeout(animationTimer);
       clearTimeout(navigationTimer);
+      audio.pause();
+      audioRef.current = null;
     };
   }, [navigate]);
 
